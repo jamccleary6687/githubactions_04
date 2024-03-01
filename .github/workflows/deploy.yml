@@ -11,12 +11,12 @@ jobs:
         with: 
           node-version: 20
       - name: install dependencies
-        uses: npm ci
+        run: npm ci
       - name: lint
-        uses: npm lint
+        run: npm lint
       - name: run tests
-        uses: npm tests
+        run: npm tests
       - name: build
-        uses: npm build
+        run: npm build
       - name: deploy
-        uses: echo 'deploying now'
+        run: echo 'deploying now'
