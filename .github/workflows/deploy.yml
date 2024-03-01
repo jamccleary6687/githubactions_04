@@ -3,8 +3,7 @@ on:
   pull-request:
     branches:
       - main
-    paths-ignore:
-      - '.github/workflows/*'  workflow-dispatch:
+  workflow-dispatch:
   push:
     branches: 
       - main
