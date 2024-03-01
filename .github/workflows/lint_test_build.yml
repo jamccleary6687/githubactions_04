@@ -1,9 +1,9 @@
-name: Deploy
+name: Lint Test Build
 on: 
-  workflow_dispatch:
-  push:
-    branches: 
+  pull_request:
+    branches:
       - main
+  workflow_dispatch:
 jobs: 
   build:
     runs-on: ubuntu-latest
@@ -22,5 +22,3 @@ jobs:
         run: npm run test
       - name: build
         run: npm run build
-      - name: deploy
-        run: echo 'deploying now'
