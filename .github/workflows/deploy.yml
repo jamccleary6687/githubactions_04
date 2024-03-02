@@ -51,5 +51,4 @@ jobs:
       - name: deploy
         run: |
           echo 'deploying now {{ env.NONSECRETVALUE }}'
-        run: | 
           echo 'deploying now $NONSECRETVALUE'        
