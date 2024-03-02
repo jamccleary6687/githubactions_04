@@ -1,11 +1,16 @@
 name: Deploy
+run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 on: 
   workflow_dispatch:
   push:
     branches: 
       - main
+env:
+  NONSECRETVALUE: val1
 jobs: 
   build:
+    env:
+      NONSECRETVALUE: overridetov2
     runs-on: ubuntu-latest
     steps:
       - name: get code
@@ -44,4 +49,7 @@ jobs:
       - name: show contents
         run: ls
       - name: deploy
-        run: echo 'deploying now'
+        run: |
+          echo 'deploying now {{ env.NONSECRETVALUE }}'
+        run: | 
+          echo 'deploying now $NONSECRETVALUE'        
