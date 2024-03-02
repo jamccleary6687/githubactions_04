@@ -5,16 +5,16 @@ on:
   push:
     branches: 
       - main
-environment: Development
 env:
   NONSECRETVALUE1: val1
   NONSECRETVALUE2: val2
-  FIRSTSECRET: ${{ secrets.REPOSECRET1 }}
-  FIRSTENVSECRET: ${{ secrets.SECRET1 }}      
 jobs: 
   build:
+    environment: Development
     env:
       NONSECRETVALUE1: overridetov2
+      FIRSTSECRET: ${{ secrets.REPOSECRET1 }}
+      FIRSTENVSECRET: ${{ secrets.SECRET1 }}      
     runs-on: ubuntu-latest
     steps:
       - name: get code
