@@ -1,13 +1,16 @@
 name: Deploy
-run-name: Deploy by @${{ github.actor }}
+# run-name: Deploy by @${{ github.actor }}
 on: 
   workflow_dispatch:
   push:
     branches: 
       - main
+environment: Development
 env:
   NONSECRETVALUE1: val1
   NONSECRETVALUE2: val2
+  FIRSTSECRET: {{ secrets.REPOSECRET1 }}
+  FIRSTENVSECRET: {{ secrets.SECRET1 }}
 jobs: 
   build:
     env:
