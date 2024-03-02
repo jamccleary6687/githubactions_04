@@ -51,4 +51,4 @@ jobs:
       - name: deploy
         run: |
           echo 'deploying now {{ env.NONSECRETVALUE }}'
-          echo 'deploying now $NONSECRETVALUE'        
+          echo 'deploying now interpolation: $NONSECRETVALUE'        
