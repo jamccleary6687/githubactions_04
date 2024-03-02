@@ -5,7 +5,6 @@ on:
   push:
     branches: 
       - main
-environment: Development
 env:
   NONSECRETVALUE1: val1
   NONSECRETVALUE2: val2
@@ -13,6 +12,7 @@ env:
   FIRSTENVSECRET: {{ secrets.SECRET1 }}
 jobs: 
   build:
+    environment: Development
     env:
       NONSECRETVALUE1: overridetov2
     runs-on: ubuntu-latest
