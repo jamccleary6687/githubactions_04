@@ -6,11 +6,12 @@ on:
     branches: 
       - main
 env:
-  NONSECRETVALUE: val1
+  NONSECRETVALUE1: val1
+  NONSECRETVALUE2: val2
 jobs: 
   build:
     env:
-      NONSECRETVALUE: overridetov2
+      NONSECRETVALUE1: overridetov2
     runs-on: ubuntu-latest
     steps:
       - name: get code
@@ -50,5 +51,5 @@ jobs:
         run: ls
       - name: deploy
         run: |
-          echo 'deploying now {{ env.NONSECRETVALUE }}'
-          echo 'deploying now interpolation: $NONSECRETVALUE'        
+          echo 'deploying now {{ env.NONSECRETVALUE1 }}'
+          echo 'deploying now interpolation: $NONSECRETVALUE2'        
