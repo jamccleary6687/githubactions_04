@@ -23,11 +23,11 @@ on:
         required: true
     outputs:
       description: some output you might want to see
-      value: ${{ jobs.build.outputs.outcome}}
+      value: ${{ jobs.build.outputs.outcome }}
 jobs: 
   build:
     runs-on: ubuntu-latest
-    output: 
+    outputs: 
       outcome: ${{ steps.step-result.outputs.step-result1}}
     steps:
       - name: show command
