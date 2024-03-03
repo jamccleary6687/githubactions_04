@@ -9,7 +9,12 @@ env:
   NONSECRETVALUE1: val1
   NONSECRETVALUE2: val2
 jobs: 
+  setup:
+    uses: ./.github/workflows/setupProject.yml
+    with: 
+      dependency_file_path: node_modules
   build:
+    needs: setup
     environment: Development
     env:
       NONSECRETVALUE1: overridetov2
@@ -17,10 +22,6 @@ jobs:
       FIRSTENVSECRET: ${{ secrets.SECRET1 }}      
     runs-on: ubuntu-latest
     steps:
-      - name: setup Project
-        uses: /.github/workflows/setupProject.yml
-        with: 
-          dependency_file_path: node_modules
       - name: lint
         run: npm run lint
       - name: run tests
