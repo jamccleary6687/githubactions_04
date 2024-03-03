@@ -18,6 +18,7 @@ jobs:
     uses: ./.github/workflows/testProject.yml
     with: 
       test_command: 'npm run test'
+      dependency_file_path: node_modules
   build:
     needs: lint
     environment: Development
