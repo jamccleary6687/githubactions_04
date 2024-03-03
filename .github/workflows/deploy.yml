@@ -17,21 +17,10 @@ jobs:
       FIRSTENVSECRET: ${{ secrets.SECRET1 }}      
     runs-on: ubuntu-latest
     steps:
-      - name: get code
-        uses: actions/checkout@v4
-      - name: install node
-        uses: actions/setup-node@v4
+      - name: setup Project
+        uses: ./.github/workflows/setupProject.yml
         with: 
-          node-version: 20
-      - name: setup dependency cache
-        id: cache
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}          
-      - name: install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci
+          dependency_file_path: node_modules
       - name: lint
         run: npm run lint
       - name: run tests
