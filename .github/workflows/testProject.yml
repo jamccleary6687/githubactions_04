@@ -13,6 +13,5 @@ jobs:
     steps:
       - name: show command
         run: echo ${{ test_command }}
-    steps:
       - name: test
         run: ${{ test_command }}
