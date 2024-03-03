@@ -21,9 +21,14 @@ on:
       someSecret:
         description: somthing that would normally be needed for deployment
         required: true
+    outputs:
+      description: some output you might want to see
+      value: ${{ jobs.build.outputs.outcome}}
 jobs: 
-  test:
+  build:
     runs-on: ubuntu-latest
+    output: 
+      outcome: ${{ steps.step-result.outputs.step-result1}}
     steps:
       - name: show command
         run: echo ${{ inputs.test_command }}
@@ -50,3 +55,6 @@ jobs:
           name: dist-files
           path: |
             ${{ inputs.dist_file_path }}
+      - name: set output
+        id: step-result
+        run: echo '::set-output name=step-result1::success'
