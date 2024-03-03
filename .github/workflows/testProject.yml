@@ -5,7 +5,7 @@ on:
       test_command: 
         description: command to execute tests
         required: false
-        default: 'npm run test'
+        default: npm run test
         type: string
 jobs: 
   test:
