@@ -12,6 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: show command
-        run: echo ${{ test_command }}
+        run: echo ${{ inputs.test_command }}
       - name: test
-        run: ${{ test_command }}
+        run: ${{ inputs.test_command }}
