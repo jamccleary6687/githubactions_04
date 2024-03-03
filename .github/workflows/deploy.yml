@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: setup Project
-        uses: ./.github/workflows/setupProject.yml
+        uses: /.github/workflows/setupProject.yml
         with: 
           dependency_file_path: node_modules
       - name: lint
