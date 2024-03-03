@@ -26,6 +26,8 @@ jobs:
       build_command: 'npm run build'
       dependency_file_path: node_modules
       dist_file_path: dist
+    secrets:
+      someSecret:  ${{ secrets.SECRET1 }}    
   deploy:     
     needs: build
     runs-on: ubuntu-latest

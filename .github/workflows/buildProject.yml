@@ -17,6 +17,11 @@ on:
         required: false
         default: dist_files
         type: string      
+    secrets:
+      someSecret:
+        description: somthing that would normally be needed for deployment
+        required: true
+        type: string
 jobs: 
   test:
     runs-on: ubuntu-latest
