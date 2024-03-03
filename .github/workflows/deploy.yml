@@ -21,21 +21,11 @@ jobs:
       dependency_file_path: node_modules
   build:
     needs: lint
-    environment: Development
-    env:
-      NONSECRETVALUE1: overridetov2
-      FIRSTSECRET: ${{ secrets.REPOSECRET1 }}
-      FIRSTENVSECRET: ${{ secrets.SECRET1 }}      
-    runs-on: ubuntu-latest
-    steps:
-      - name: build
-        run: npm run build
-      - name: upload artifact
-        uses: actions/upload-artifact@v4
-        with: 
-          name: dist-files
-          path: |
-            dist
+    uses: ./.github/workflows/buildProject.yml
+    with: 
+      build_command: 'npm run build'
+      dependency_file_path: node_modules
+      dist_file_path: dist
   deploy:     
     needs: build
     runs-on: ubuntu-latest
