@@ -1,0 +1,15 @@
+name: Test Project
+on: 
+  workflow_call:
+    inputs:
+      test_command: 
+        description: command to execute tests
+        required: false
+        default: npm run test
+        type: string
+jobs: 
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        run: ${{ test_command }}

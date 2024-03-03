@@ -1,4 +1,4 @@
-name: Setup
+name: Lint Project
 on: 
   workflow_call:
     inputs:
