@@ -43,4 +43,5 @@ jobs:
           echo 'deploying now {{ env.NONSECRETVALUE1 }}'
           echo 'deploying now interpolation: $NONSECRETVALUE2'  
       - name: print job output
-          echo ${{ needs.build.outputs.result }}      
+          run: |
+            echo ${{ needs.build.outputs.result }}      
