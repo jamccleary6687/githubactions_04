@@ -22,7 +22,7 @@ on:
         description: somthing that would normally be needed for deployment
         required: true
     outputs:
-      description: some output you might want to see
+      description: 'some output you might want to see'
       value: ${{ jobs.build.outputs.outcome }}
 jobs: 
   build:
